@@ -1,0 +1,211 @@
+body,
+html {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+.row-container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  overflow: hidden;
+}
+.second-row {
+  flex-grow: 1;
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+body {
+  &[current-pdf*="dr"] #i-am-doctor {
+    background-color: purple;
+  }
+  &[current-pdf*="pt"] #i-am-patient {
+    background-color: purple;
+  }
+  text-align: center;
+  background-image: url("../assets/seed.png");
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+  background-size: 100vw 200vh !important;
+  position: fixed;
+  top: 0;
+  left: 0;
+  margin: 0;
+  height: 100vh;
+  width: 100vw;
+  #contact-us-btn,
+  #report-issue-btn {
+    background-color: midnightblue;
+  }
+  button {
+    font-weight: bold;
+    text-align: center;
+    max-height: fit-content;
+  }
+  div#user-type {
+    // transform: translateX(-10%);
+    min-width: fit-content;
+    border: 2px solid green;
+    border-radius: 5px;
+    padding: 2px;
+    * {
+      text-align: center;
+      max-width: fit-content;
+    }
+  }
+  div.header,
+  div#pdf-container {
+    margin: 8px;
+    border: 2px solid purple;
+    border-radius: 5px;
+  }
+  div.header {
+    width: calc(100vw - 28px);
+    display: flex;
+    flex-direction: row;
+    color: white;
+    font-weight: bold;
+    padding: 4px;
+    * {
+      margin-left: 2px;
+    }
+  }
+  // /* Smartphones (portrait) ----------- */
+  // @media only screen and (max-width: 500px) {
+  //   height: calc(100vh - 140px) !important;
+  // }
+  // /* Desktops and laptops ----------- */
+  // @media only screen and (min-width: 1224px) {
+  //   height: calc(100vh - 82px) !important;
+  // }
+  div#pdf-container {
+    margin-top: 0;
+    width: calc(100vw - 20px);
+    // height: calc(100vh - 140px) !important;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    height: auto;
+  }
+  &:has(#pdf-container[hidden="true"]) {
+    button {
+      padding: 10px;
+      min-width: 100%;
+    }
+    div.header {
+      flex-direction: column;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      // display: block;
+      max-width: fit-content;
+      padding: 20%;
+      * {
+        display: flex;
+        margin: auto;
+        text-align: center;
+        max-width: fit-content;
+        margin-top: 3px;
+      }
+      align-items: center;
+    }
+    div#user-type {
+      display: block;
+      max-width: fit-content;
+      padding: 10%;
+      margin-top: 5%;
+      * {
+        display: flex;
+        margin: auto;
+        text-align: center;
+        max-width: fit-content;
+        margin-top: 5%;
+      }
+    }
+  }
+}
+*[d-blk] {
+  display: block;
+}
+*[d-flx] {
+  display: flex;
+}
+.box-shadow {
+  box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    0 100px 80px rgba(0, 0, 0, 0.12);
+}
+.section-blur {
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  background-color: rgba(17, 25, 40, 0.75);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.125);
+}
+/* lang-switch */
+#lang-switch {
+  display: flex;
+  position: fixed !important;
+  left: 1vw;
+  bottom: 1vh;
+}
+/* CSS */
+button {
+  appearance: none;
+  background-color: #2ea44f;
+  border: 1px solid rgba(27, 31, 35, 0.15);
+  border-radius: 6px;
+  box-shadow: rgba(27, 31, 35, 0.1) 0 1px 0;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial,
+    sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  padding: 6px 16px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+button:focus:not(:focus-visible):not(.focus-visible) {
+  box-shadow: none;
+  outline: none;
+}
+
+button:hover {
+  background-color: #2c974b;
+}
+
+button:focus {
+  box-shadow: rgba(46, 164, 79, 0.4) 0 0 0 3px;
+  outline: none;
+}
+
+button:disabled {
+  background-color: #94d3a2;
+  border-color: rgba(27, 31, 35, 0.1);
+  color: rgba(255, 255, 255, 0.8);
+  cursor: default;
+}
+
+button:active {
+  background-color: #298e46;
+  box-shadow: rgba(20, 70, 32, 0.2) 0 1px 0 inset;
+}
+
+*[hidden="true"] {
+  display: none !important;
+}

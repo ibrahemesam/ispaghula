@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <title>Ispaghula</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="css/main.css" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="css/theme-switch.css" />
+    <link rel="stylesheet" href="css/lang-switch.css" />
+    <script src="js/darkreader.min.js"></script>
+    <link rel="icon" href="assets/favicon.png" />
+    <script type="text/javascript">
+      // setup darkTheme before anything
+      (async () => {
+        var useDarkThemeCookie = await localStorage.getItem("useDarkTheme");
+        if (useDarkThemeCookie) {
+          window.useDarkTheme = useDarkThemeCookie
+            ? JSON.parse(useDarkThemeCookie)
+            : useDarkThemeCookie;
+        } else {
+          if (window.matchMedia) {
+            if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+              useDarkTheme = true;
+            } else {
+              useDarkTheme = false;
+            }
+          } else {
+            useDarkTheme = false; // default is light 🤓
+          }
+        }
+        useDarkTheme ? darkreader.enable() : darkreader.disable();
+      })();
+    </script>
+    <script src="js/set-lang.js"></script>
+  </head>
+  <body class="row-container">
+    <include-html src="widgets/theme-switch.html"></include-html>
+    <div class="switch-lang" id="lang-switch">
+      <input
+        id="language-toggle-input"
+        class="check-toggle check-toggle-round-flat"
+        type="checkbox"
+      />
+      <label for="language-toggle-input" id="language-toggle-label"></label>
+      <span class="on">EN</span>
+      <span class="off">AR</span>
+    </div>
+    <div class="header box-shadow section-blur">
+      <div id="user-type">
+        <label id="user-type-lab" data-word="i-am"></label>
+        <button type="radio" id="i-am-patient" data-word="patient"></button>
+        <button type="radio" id="i-am-doctor" data-word="doctor"></button>
+      </div>
+      <button
+        type="radio"
+        data-word="contact-us"
+        id="contact-us-btn"
+        style="flex-grow: 1 !important"
+      ></button>
+      <!-- <button
+        type="radio"
+        data-word="report-issue"
+        id="report-issue-btn"
+      ></button> -->
+    </div>
+    <div id="pdf-container" class="row-container second-row" hidden="true">
+      <div class="first-row" hidden="true"></div>
+      <iframe
+        id="iframe-pdf"
+        class="second-row"
+        frameborder="0"
+        style="
+          overflow: hidden;
+          overflow-x: hidden;
+          overflow-y: hidden;
+          top: 0px;
+          left: 0px;
+          right: 0px;
+          bottom: 0px;
+          margin: 0;
+        "
+      ></iframe>
+    </div>
+    <script src="js/include-html.js"></script>
+    <script type="module" src="js/main.js"></script>
+  </body>
+</html>
