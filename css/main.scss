@@ -4,6 +4,9 @@ html {
   height: 100%;
   margin: 0;
   padding: 0;
+  // &:has(head style.darkreader[media="screen"]) #pdf-container iframe {
+  //   filter: invert(1);
+  // }
 }
 .row-container {
   display: flex;
